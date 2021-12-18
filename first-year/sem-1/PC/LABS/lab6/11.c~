@@ -1,0 +1,20 @@
+/*
+Se citește un număr n<=10 și apoi n numere întregi. Se cere să se șteargă toate duplicatele (ori de câte ori apar acestea) din vector, păstrându-se ordinea elementelor.
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+  int n, i, j, v[11];
+  
+  scanf("%d",&n);
+
+
+  for (i = 0; i < n; i++)
+    {
+      scanf("%d", &v[i]);
+    }
+
+  return 0;
+}

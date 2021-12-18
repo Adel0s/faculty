@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+  int n, m, i, c=0;
+  
+  printf("n = ");
+  scanf("%d",&n);
+  
+  printf("m = ");
+  scanf("%d",&m);
+
+  for(i=1;i<=n;i++)
+    {
+      printf("%d ",c);
+      c++;
+      if(c>m)
+	{
+	  c=0;
+	}
+    }
+    return 0;
+}

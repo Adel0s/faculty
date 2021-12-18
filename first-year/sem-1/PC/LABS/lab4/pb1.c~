@@ -1,0 +1,13 @@
+/*
+Se cere un număr impar n>4. Să se deseneze cifra „8”, scris ca un pătrat cu o linie orizontală în mijloc, în așa fel încât pe 
+verticală și pe orizontală să fie câte n steluțe. În program nu vor fi admise duplicări de cod.
+ */
+#include<stio.h>
+int main(void)
+{
+  int n;
+  printf("n = ");
+  scanf("%d",&n);
+  printf("n = %d\n",n);
+  return 0;
+}

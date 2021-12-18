@@ -1,0 +1,28 @@
+/*
+Scrieți un program care interschimbă valorile a două variabile de tip întreg utilizând pointeri.
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+  int a, b, *p;
+  printf("a = ");
+  scanf("%d",&a);
+
+
+  printf("b = ");
+  scanf("%d",&b);
+
+  printf("a = %d", a);
+  printf("b = %d", b);
+
+  p = &a;
+  &a = &b;
+  &b = p;
+
+  printf("a = %d", a);
+  printf("b = %d", b);
+  
+  return 0;
+}
