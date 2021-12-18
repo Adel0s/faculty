@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <stlib.h>
+#include <string.h>
+#include <stdint.h>
+
+int main(void)
+{
+  FILE *f = NULL;
+  
+  return 0;
+}
