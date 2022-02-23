@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+uint16_t *binary_string_to_array16(char *string, int *size)
+{
+  uint16_t decimal, *v16 = NULL;
+  char *p = strtok(string," ");
+  while(p)
+    {
+      decimal = strtol(p, NULL, 2);
+      *size++;
+      v16 = (uint16_t *)realloc(v16, *size*sizeof(uint16_t));
+      if(v16 == NULL)
+	{
+	  printf("Memorie insuficienta!\n");
+	  exit(-1);
+	}
+      v16[*size-1] = decimal;
+      p = strtok(NULL," ");
+    }
+  return v16;
+}
+  
+
+int main(void)
+{
+  char input[] = "0000000001111011 0000000001110011 0000000001010010 0000000000010011";  //123 115 82 19
+  
+  char *p;
+  uint16_t decimal;
+  uint16_t *v16 = NULL;
+  int *size = 0;
+  binary_string_to_array16(input, size);
+  v16 = (uint16_t *)realloc(v16, *size*sizeof(uint16_t));
+  v16 = binary_string_to_array16(input, size);
+  
+  /* p = strtok(input, " ");
+  while(p)
+    {
+      decimal = strtol(p, NULL, 2);
+      size++;
+      v16 = (uint16_t *)realloc(v16, size*sizeof(uint16_t));
+      v16[size-1] = decimal;
+      p = strtok(NULL, " ");
+    }
+
+  for(int i = 0; i<size;i++)
+    {
+      printf("%d\n", v16[i]);
+    }
+  */
+}

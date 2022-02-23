@@ -1,0 +1,23 @@
+#include <stdin.h>
+#include <stdint.h>
+
+char *convert_to_octal(char *line)
+{
+  char *converted_string;
+  int ch = 0;
+  int i = 0;
+  line = realloc(line,strlen(line)*sizeof(char));
+  while(line[i] != '\0')
+    {
+      ch = line[i];
+      ch = strtol(ch,NULL,8);
+      line[i] = ch;
+      i++;
+    }
+}
+
+int main(void)
+{
+  
+  return 0;
+}

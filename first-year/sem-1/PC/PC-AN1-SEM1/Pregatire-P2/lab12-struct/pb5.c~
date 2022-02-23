@@ -1,0 +1,12 @@
+/*
+Să se implementeze o bază de date ce modelează animale. Animelele pot fi insecte, păsări, mamifere și pești. O insectă se caracterizează prin număr picioare și durata medie de viată în zile, o pasăre prin viteza de zbor și lungimea aripilor, un mamifer prin greutate, înălțime și tip de mancare (carnivor, ierbivor, omnivor) iar un pește prin greutate, adâncimea maximă de înnot și salinitatea apei (în procentaj). Să se definnească structurile de date necesare cât mai abstract posibil și cu amprenta de memorie minima. Se va defini un tablou de astfel de structuri și se vor implementa funcții de adaugare animal, stergere animal și printare animale.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  
+  return 0;
+}

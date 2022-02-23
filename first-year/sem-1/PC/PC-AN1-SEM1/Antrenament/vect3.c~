@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+
+#define N 128
+
+void read_random(int v[], int size)
+{
+  int i = 0;
+  for(i=0;i<size;i++)
+    {
+      v[i] = rand() % 100001;
+    }
+}
+
+
+void print_array(int v[],int size)
+{
+  for(int i=0;i<size;i++)
+    {
+      printf("%d ",v[i]);
+    }
+}
+
+int main(void)
+{
+  srand(time(NULL));
+  int v[N];
+  read_random(v,N);
+  print_array(v,N);
+  printf("\n");
+  return 0;
+}

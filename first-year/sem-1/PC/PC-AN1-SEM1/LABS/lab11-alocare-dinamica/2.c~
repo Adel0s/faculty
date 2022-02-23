@@ -1,0 +1,4 @@
+/*Se citesc numere până la întâlnirea numărului 0. Să se afișeze aceste numere în ordine inversă. Programul va folosi doar minimul necesar de memorie*/
+
+#include<stdlib.h>
+#include<stdio.h>

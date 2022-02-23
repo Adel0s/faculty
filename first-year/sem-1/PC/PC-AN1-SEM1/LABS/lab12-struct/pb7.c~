@@ -1,0 +1,18 @@
+/*
+Sa se implementeze o baza de date care contine urmatoarele tipuri de produse:
+     - stick USB: interfata (A sau C), capacitate(GB)
+     - baterie: voltaj
+Fiecare produs va avea asociate un pret, stoc si un cod unic. Operatiile vor fi:
+     - introducere - introduce un nou produs, inclusiv codul sau. Daca codul exista deja, se incrementeaza stocul, altfel se considera stoc=1
+     - listare - se listeaza doar produsele existente pe stoc
+     - stergere - se da un cod si se decrementeaza stocul. Produsele cu stoc 0 raman in baza de date. Daca deja este 0, se emite mesaj de atentionare.
+Programul va folosi alocare dinamica, astfel incat sa se foloseasca doar strictul necesar de memorie. Utilizatorul va avea la dispozitie un meniu, de unde va putea apela fiecare functie.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+  return 0;
+}

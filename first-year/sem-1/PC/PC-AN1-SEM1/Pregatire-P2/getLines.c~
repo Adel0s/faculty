@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <string.>
+#include <stdlib.h>
+
+char *getLine(FILE *f)
+{
+  char ch = 0;
+  char *line = NULL;
+}
+  
+
+int main(void)
+{
+  return 0;
+}

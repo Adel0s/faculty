@@ -1,0 +1,10 @@
+#include<stdio.h>
+
+int main()
+{
+  int n;
+  printf("lungime latura = ");
+  scanf("%d",&n);
+  printf("n=%d",n);
+  return 0;
+}

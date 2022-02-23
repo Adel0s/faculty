@@ -1,0 +1,58 @@
+/*
+O structură conține ora (ca si o alta structura potrivita) la care s-a măsurat o anumită temperatură și valoarea acestei temperaturi (real). Se cere n<=10 și apoi n temperaturi. Se cere apoi o oră de început și una de sfârșit. Să se afișeze media temperaturilor care au fost măsurate în acel interval orar, inclusiv în capetele acestuia.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+typedef struct
+{
+  int h;
+  int m;
+}TIME;
+
+typedef struct
+{
+  TIME o;
+  float temp;
+}TEMP;
+
+void afisare(TEMP t)
+{
+  printf("%g - %c:%c\n", t.temp, t.o.h, t.o.m);
+}
+
+int main(void)
+{
+  int n, i;
+  TEMP temps[11];
+  printf("n = ");
+  scanf("%d",&n);
+  //getchar();
+
+  for(i=0;i<n;i++)
+    {
+      printf("temperatura = ");
+      scanf("%f",&temps[i].temp);
+      getchar();
+      
+      printf("ora: ");
+      scanf("%d",&temps[i].o.h);
+      //getchar();
+
+      /*
+      printf("minutul: ");
+      scanf("%d",&temps[i].o.m);
+      getchar();
+      */
+    }
+
+   for(i=0;i<n;i++)
+    {
+      afisare(temps[i]);
+    }
+  
+  
+  return 0;
+}

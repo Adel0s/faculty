@@ -1,0 +1,117 @@
+/*
+Programul va citi acest fișier folosind funcțiile dedicate pentru citirea fișierelor text, va extrage câmpurile judet, beneficiari platiti si suma total platita drepturi curente, si va stoca datele într-un tablou alocat dinamic, de structuri de date corespunzătoare, de dimensiune minimă necesară. Se cere să se implementeze tipuri de date utilizator. Se va implementa de asemenea o funcție de sortate dupa judet și o funcție de sortare după suma totala platita drepturi curente. Programul va scrie în fișierul rezultat.txt pe câte un rând diferit judetul cu cea mai mare populatie, judetul cu cea mai mare suma din câmpul alte plati.
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+
+#define LINE_SIZE 5000
+#define ARRAY_SIZE 2000
+
+typedef struct
+{
+  char judet[100];
+  uint32_t populatie;
+  uint32_t benefP;
+  uint16_t benefS;
+  uint64_t sumaT;
+  uint32_t altePlati;
+}INDEMNIZATIE;
+
+INDEMNIZATIE *processLine(char *line)
+{
+  static INDEMNIZATIE ind;
+  char *p;
+  if((p = strtok(line, ";")) == NULL)
+    {
+      return NULL;
+    }
+  strcpy(ind.judet, p);
+
+  if((p = strtok(NULL, ";")) == NULL)
+    {
+      return NULL;
+    }
+  ind.populatie = strtol(p, NULL, 10);
+
+  if((p = strtok(NULL, ";")) == NULL)
+    {
+      return NULL;
+    }
+  ind.benefP = strtol(p, NULL, 10);
+
+  if((p = strtok(NULL, ";")) == NULL)
+    {
+      return NULL;
+    }
+  ind.benefS = strtol(p, NULL, 10);
+
+  if((p = strtok(NULL, ";")) == NULL)
+    {
+      return NULL;
+    }
+  ind.sumaT = strtol(p, NULL, 10);
+
+  if((p = strtok(NULL, ";")) == NULL)
+    {
+      return NULL;
+    }
+  ind.altePlati = strtol(p, NULL, 10);
+
+  return &ind;
+}
+
+void printInd(INDEMNIZATIE *ind)
+{
+  printf("%s %d %d %ld %d \n", ind->judet, ind->benefP, ind->benefS, ind->sumaT, ind->altePlati);
+}
+
+void printIndArray(INDEMNIZATIE *array, int size)
+{
+  for(int i=0;i<size;i++)
+    {
+      printf("%d ", i);
+      printInd(&array[i]);
+    }
+}
+
+int main(void)
+{
+
+  printf("startPROG\n");
+  FILE *f = NULL;
+  static char line[LINE_SIZE];
+  //static INDEMNIZATIE inds[ARRAY_SIZE];
+  INDEMNIZATIE *inds = NULL;
+  inds = (INDEMNIZATIE)malloc(42*sizeof(INDEMNIZATIE));
+  INDEMNIZATIE *aux;
+  int count = 0;
+
+  if((f = fopen("indemnizatie.csv", "r")) == NULL)
+    {
+      perror(NULL);
+      exit(-1);
+    }
+  
+  printf("Fisier deschis cu succes\n");
+  
+  while(fgets(line, LINE_SIZE, f) != NULL)
+    {
+      if((aux = processLine(line)) != NULL)
+	{
+	  //printInd(aux);
+	  inds[count++] = *aux;
+	}
+    }
+
+  printIndArray(inds, count);
+
+  if(fclose(f) != 0)
+    {
+      perror(NULL);
+      exit(-1);
+    }
+  return 0;
+}
